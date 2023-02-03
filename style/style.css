@@ -63,7 +63,7 @@ header {
     width: 124px;
     height: 12px;
     position: absolute;
-    bottom: 26px;
+    bottom: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -366,8 +366,11 @@ goods {
 }
 
 .stock__img {
-    width: 330px;
-    height: 330px;
+    /*ПОПРОБУЮ ЗАДАТЬ ШИРИНУ ЧЕРЕЗ 100%*/
+
+    /*width: 330px;*/
+    /*height: 330px;*/
+    width: 100%;
 }
 
 
