@@ -221,7 +221,12 @@
     }
 }
 
-@media (max-width: 890px) {
+@media (max-width: 896px) {
+
+    .banner__title {
+        font-size: 21px;
+
+    }
 
     .stock__item {
         max-width: 330px;

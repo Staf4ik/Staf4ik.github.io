@@ -54,19 +54,21 @@ header {
     position: relative;
 }
 
-.banner::after {
-    content: '';
-    display: block;
-    background-image: url("../images/points.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 124px;
-    height: 12px;
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
+/*Бутафорские точки*/
+/*.banner::after {*/
+/*    content: '';*/
+/*    display: block;*/
+/*    background-image: url("../images/points.svg");*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: contain;*/
+/*    width: 124px;*/
+/*    height: 12px;*/
+/*    position: absolute;*/
+/*    bottom: 10%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*}*/
 
 .bannermain__img {
     background-image: url("../images/baner1.png");
@@ -610,4 +612,144 @@ footer {
 
 
 
+/*Добавление слайдера*/
 
+.slick-list {
+    overflow: hidden;
+}
+
+.slick-track {
+    display: flex;
+    /*Мы делаем выравнивание по верху, чтобы у нас работал автоматический выравниватель но высоте для каждого объекта*/
+    /*align-items: flex-start;*/
+    /*align-items: flex-end;*/
+}
+
+.slider {
+    position: relative;
+    padding: 0 40px;
+    min-width: 0;
+}
+
+/*при включении функции centerMode появился новый класс slick-center, благодаря которому мы можем добавить стиль к главному слайду*/
+.slider__items.slick-center {
+    opacity: 1;
+}
+
+/*Настройки для верхнего слайдера banner-slider*/
+.slick-list {
+    max-width: 100%;
+}
+
+.slick-list img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.banner-slider {
+    position: relative;
+    padding: 0;
+}
+
+.banner-slider .slick-dots {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+
+.banner-slider ul.slick-dots  {
+    padding: 0;
+
+}
+
+.banner-slider .slick-dots li {
+    list-style: none;
+    margin-left: 10px;
+
+}
+
+
+.banner-slider .slick-dots button {
+    font-size: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #E6E6E6;
+    border-radius: 50%;
+    /*border-color: #fff;*/
+    border: 0px solid #fff;
+    padding: 0;
+
+}
+
+.banner-slider .slick-dots li.slick-active button {
+    background-color: #C4C4C4;
+
+}
+
+
+@media (max-width: 1440px) {
+
+    .banner-slider .slick-dots button {
+        width: 9.5px;
+        height: 9.5px;
+    }
+}
+
+@media (max-width: 1070px) {
+
+    .banner-slider .slick-dots button {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 960px) {
+
+    .banner-slider .slick-dots button {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .banner-slider .slick-dots {
+
+        bottom: -5%;
+    }
+
+    .banner-slider .slick-dots button {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    .banner-slider .slick-dots {
+
+        bottom: -25%;
+    }
+
+    .banner-slider .slick-dots button {
+        width: 7.8px;
+        height: 7.8px;
+
+    }
+}
+
+
+
+@media (max-width: 375px) {
+
+    .banner-slider .slick-dots {
+
+        bottom: -20%;
+    }
+
+}
