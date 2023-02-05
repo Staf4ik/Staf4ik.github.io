@@ -13,28 +13,6 @@ body {
     /*Похорошей бы поставить паддинги, но там ломается адаптив, а я только все доделал*/
 }
 
-.btn-next {
-    display: none;
-    background-color: transparent;
-    border: none;
-    background-image: url("../images/arrow.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    align-self: center;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 100%;
-
-}
-
-.btn-position {
-    align-self: start;
-    padding-top: 50px;
-}
-
-
 header {
     display: grid;
     grid-template-areas: "a a"
@@ -48,27 +26,91 @@ header {
 }
 
 
+/*Добавление слайдера BANNER*/
+
+.slick-list {
+    overflow: hidden;
+}
+
+.banner-slider .slick-track {
+    display: flex;
+    /*Мы делаем выравнивание по верху, чтобы у нас работал автоматический выравниватель но высоте для каждого объекта*/
+    /*align-items: flex-start;*/
+    /*align-items: flex-end;*/
+}
+
+.banner-slider {
+    position: relative;
+    min-width: 0;
+}
+
+/*при включении функции centerMode появился новый класс slick-center, благодаря которому мы можем добавить стиль к главному слайду*/
+.slider__items.slick-center {
+    opacity: 1;
+}
+
+/*Настройки для верхнего слайдера banner-slider*/
+.slick-list {
+    max-width: 100%;
+}
+
+.slick-list img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.banner-slider {
+    position: relative;
+    padding: 0;
+}
+
+.banner-slider .slick-dots {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+
+.banner-slider ul.slick-dots  {
+    padding: 0;
+
+}
+
+.banner-slider .slick-dots li {
+    list-style: none;
+    margin-left: 10px;
+
+}
+
+
+.banner-slider .slick-dots button {
+    font-size: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #E6E6E6;
+    border-radius: 50%;
+    /*border-color: #fff;*/
+    border: 0px solid #fff;
+    padding: 0;
+
+}
+
+.banner-slider .slick-dots li.slick-active button {
+    background-color: #C4C4C4;
+
+}
+
+/*!!!!!! КОНЕЦ СЛАЙДЕРА BANNER!!!!!!!*/
+
 .banner {
     box-sizing: border-box;
     grid-area: a;
     position: relative;
 }
 
-
-/*Бутафорские точки*/
-/*.banner::after {*/
-/*    content: '';*/
-/*    display: block;*/
-/*    background-image: url("../images/points.svg");*/
-/*    background-repeat: no-repeat;*/
-/*    background-size: contain;*/
-/*    width: 124px;*/
-/*    height: 12px;*/
-/*    position: absolute;*/
-/*    bottom: 10%;*/
-/*    left: 50%;*/
-/*    transform: translate(-50%, -50%);*/
-/*}*/
 
 .bannermain__img {
     background-image: url("../images/baner1.png");
@@ -81,24 +123,19 @@ header {
 
 .banner-2 {
     grid-area: b;
-    /*margin-right: 15px;*/
 }
 
 .banner-3 {
     grid-area: c;
-    /*margin-left: 15px;*/
-
 }
 
 .banner__picture {
     position: relative;
-
 }
 
 .banner__img{
     width: 100%;
     vertical-align: bottom;
-
 }
 
 .banner__gradient {
@@ -112,7 +149,6 @@ header {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(31, 130, 215, 0.8) 60.71%);
     opacity: 1;
     border-radius: 4px;
-
 }
 
 .banner__text {
@@ -143,12 +179,99 @@ header {
 
 /*CATALOG*/
 
-.catalog__items {
+/*СЛАЙДЕР КАТАЛОГ .slider*/
+
+/*.slick-slide {*/
+/*    margin: 0 100px;*/
+/*}*/
+
+/*.slider .slick-list {*/
+/*    max-width: 100%;*/
+/*}*/
+
+.slider .slick-list img{
+    width: 70%;
+    object-fit: cover;
+}
+
+.slider .slick-track {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    /*Мы делаем выравнивание по верху, чтобы у нас работал автоматический выравниватель но высоте для каждого объекта*/
+    align-items: flex-start;
+    /*align-items: flex-end;*/
+}
+
+
+
+.slick-list {
+    overflow: hidden;
+}
+
+.slider {
+    position: relative;
+    /*padding: 0 40px;*/
+    min-width: 0;
+}
+
+/*!*СТИЛИЗАЦИЯ СТРЕЛОК*!*/
+/*!*мы записываем через  .slider .slick-arrow чтобы эффект применялся именно к этому слайдеру, т.к. их может быть несколько на странице*!*/
+
+/*!*чтобы стрелки стояли слева/справа, а не верх/низ, мы делаем position: absolute;  top: 50%;*!*/
+.slider .slick-arrow{
+    position: absolute;
+    top: 50%;
+    margin: -15px 0 0 0;
+    z-index: 10;
+    font-size: 0;
+    border: none;
+    background: transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100%;
+}
+
+.slider .slick-arrow.slick-prev{
+    left: 0;
+    background-image: url("../images/arrow-l.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+}
+
+.slider .slick-arrow.slick-next{
+    right: 0;
+    background-image: url("../images/arrow-r.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+}
+
+
+/*!*Поведение стрелки при достижении последнего слайда. В данном случая, она пропадает.*!*/
+.slider .slick-arrow.slick-disabled {
+    opacity: 0;
+}
+
+/*!*при включении функции centerMode появился новый класс slick-center, благодаря которому мы можем добавить стиль к главному слайду*!*/
+/*.slider__items.slick-center {*/
+/*    opacity: 1;*/
+/*}*/
+
+/*!!!!! КОНЕЦ СЛАЙДЕР КАТАЛОГА !!!!!!*/
+
+
+.catalog__items {
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    /*align-items: baseline;*/
     /*padding: 0 15px;*/
     margin: 0 0px 102px 0px;
+}
+
+.catalog__item {
+    max-width: 180px;
+    max-height: 180px;
 }
 
 .catalog__link {
@@ -162,8 +285,8 @@ header {
     align-items: center;
     justify-content: center;
     background-color: #F8F8F8;
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    height: 100%;
     border-radius: 100%;
     margin-bottom: 24px;
 
@@ -179,11 +302,83 @@ header {
 
 .catalog__discription {
     text-align: center;
-    max-width: 180px;
+    width: 100%;
     font-size: 16px;
+    overflow-wrap: break-word;
 }
 
 /*Goods Популярные товары*/
+
+/* СЛАЙДЕР GOODS DISCAUNTS .goods-slider*/
+
+.goods-slider .slick-track {
+    display: flex;
+    /*Мы делаем выравнивание по верху, чтобы у нас работал автоматический выравниватель но высоте для каждого объекта*/
+    align-items: flex-start;
+    /*align-items: flex-end;*/
+}
+
+.goods-slider .slick-list {
+    overflow: hidden;
+}
+
+.goods-slider {
+    position: relative;
+    padding: 0 40px;
+    min-width: 0;
+}
+
+/*СТИЛИЗАЦИЯ СТРЕЛОК*/
+/*мы записываем через  .slider .slick-arrow чтобы эффект применялся именно к этому слайдеру, т.к. их может быть несколько на странице*/
+
+/*чтобы стрелки стояли слева/справа, а не верх/низ, мы делаем position: absolute;  top: 50%;*/
+.goods-slider .slick-arrow {
+    position: absolute;
+    top: 50%;
+    margin: -15px 0 0 0;
+    z-index: 10;
+    font-size: 0;
+    border: none;
+    background: transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100%;
+}
+
+.goods-slider .slick-arrow.slick-prev {
+    left: 0;
+    background-image: url("../images/arrow-l.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+
+}
+
+.goods-slider .slick-arrow.slick-next{
+    right: 0;
+    background-image: url("../images/arrow-r.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+}
+
+
+/*Поведение стрелки при достижении последнего слайда. В данном случая, она пропадает.*/
+.goods-slider .slick-arrow.slick-disabled {
+    opacity: 0;
+}
+
+.goods-slider .slick-list img{
+    /*width: 70%;*/
+    object-fit: contain;
+}
+
+.goods-slider .slick-list {
+    max-width: 90%;
+}
+
+/*!!!!! КОНЕЦ СЛАЙДЕРА GOODS !!!!!!!!*/
 
 goods {
     /*margin: 0 30px 70px 0;*/
@@ -196,12 +391,12 @@ goods {
     margin-bottom: 40px;
 }
 
-.goods_items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-}
+/*.goods_items {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*}*/
 
 .goods_item {
     display: inline-block;
@@ -403,12 +598,12 @@ goods {
     margin-bottom: 47px;
 }
 
-.discounts_items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-}
+/*.discounts_items {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    justify-content: space-between;*/
+/*    align-items: flex-start;*/
+/*}*/
 
 .discounts_item {
     display: inline-block;
@@ -612,83 +807,9 @@ footer {
 
 
 
-/*Добавление слайдера*/
-
-.slick-list {
-    overflow: hidden;
-}
-
-.slick-track {
-    display: flex;
-    /*Мы делаем выравнивание по верху, чтобы у нас работал автоматический выравниватель но высоте для каждого объекта*/
-    /*align-items: flex-start;*/
-    /*align-items: flex-end;*/
-}
-
-.slider {
-    position: relative;
-    padding: 0 40px;
-    min-width: 0;
-}
-
-/*при включении функции centerMode появился новый класс slick-center, благодаря которому мы можем добавить стиль к главному слайду*/
-.slider__items.slick-center {
-    opacity: 1;
-}
-
-/*Настройки для верхнего слайдера banner-slider*/
-.slick-list {
-    max-width: 100%;
-}
-
-.slick-list img{
-    width: 100%;
-    object-fit: cover;
-}
-
-.banner-slider {
-    position: relative;
-    padding: 0;
-}
-
-.banner-slider .slick-dots {
-    display: flex;
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translate(-50%, -50%);
-    /*justify-content: center;*/
-    /*align-items: center;*/
-}
-
-.banner-slider ul.slick-dots  {
-    padding: 0;
-
-}
-
-.banner-slider .slick-dots li {
-    list-style: none;
-    margin-left: 10px;
-
-}
 
 
-.banner-slider .slick-dots button {
-    font-size: 0;
-    width: 12px;
-    height: 12px;
-    background-color: #E6E6E6;
-    border-radius: 50%;
-    /*border-color: #fff;*/
-    border: 0px solid #fff;
-    padding: 0;
-
-}
-
-.banner-slider .slick-dots li.slick-active button {
-    background-color: #C4C4C4;
-
-}
+/*МЕДИА ДЛЯ СЛАЙДЕРОВ*/
 
 
 @media (max-width: 1440px) {
