@@ -6,6 +6,10 @@ body {
     color: #333333;
 }
 
+.mobile_block {
+    overflow-X: hidden;
+}
+
 .wrapper {
     max-width: 1410px;
     margin: 0 auto;
@@ -26,10 +30,24 @@ header {
 }
 
 
-/*Добавление слайдера BANNER*/
+/*СЛАЙДЕР БАННЕР banner-slider*/
 
-.slick-list {
+/*Ширина контейнера слайдера*/
+.banner-slider  {
+    position: relative;
+    /*padding: 0 40px;*/
+    min-width: 0;
+}
+
+.banner-slider .slick-list {
+    width: 100%;
     overflow: hidden;
+}
+
+/*Размер картинки*/
+.banner-slider .slick-list img{
+    width: 100%;
+    object-fit: cover;
 }
 
 .banner-slider .slick-track {
@@ -39,53 +57,28 @@ header {
     /*align-items: flex-end;*/
 }
 
-.banner-slider {
-    position: relative;
-    min-width: 0;
-}
 
-/*при включении функции centerMode появился новый класс slick-center, благодаря которому мы можем добавить стиль к главному слайду*/
-.slider__items.slick-center {
-    opacity: 1;
-}
-
-/*Настройки для верхнего слайдера banner-slider*/
-.slick-list {
-    max-width: 100%;
-}
-
-.slick-list img{
-    width: 100%;
-    object-fit: cover;
-}
-
-.banner-slider {
-    position: relative;
-    padding: 0;
-}
-
+/*ТОЧКИ*/
 .banner-slider .slick-dots {
     display: flex;
     position: absolute;
     left: 50%;
     bottom: 0;
     transform: translate(-50%, -50%);
-    /*justify-content: center;*/
-    /*align-items: center;*/
 }
 
 .banner-slider ul.slick-dots  {
     padding: 0;
-
 }
 
+/*ОТСТУПЫ МЕЖДУ ТОЧКАМИ*/
 .banner-slider .slick-dots li {
     list-style: none;
     margin-left: 10px;
 
 }
 
-
+/*СТИЛИЗАЦИЯ ТОЧЕК*/
 .banner-slider .slick-dots button {
     font-size: 0;
     width: 12px;
@@ -100,9 +93,7 @@ header {
 
 .banner-slider .slick-dots li.slick-active button {
     background-color: #C4C4C4;
-
 }
-
 /*!!!!!! КОНЕЦ СЛАЙДЕРА BANNER!!!!!!!*/
 
 .banner {
@@ -181,42 +172,34 @@ header {
 
 /*СЛАЙДЕР КАТАЛОГ .slider*/
 
-/*.slick-slide {*/
-/*    margin: 0 100px;*/
-/*}*/
-
-/*.slider .slick-list {*/
-/*    max-width: 100%;*/
-/*}*/
-
-.slider .slick-list img{
-    width: 70%;
-    object-fit: cover;
-}
-
-.slider .slick-track {
-    display: flex;
-    /*Мы делаем выравнивание по верху, чтобы у нас работал автоматический выравниватель но высоте для каждого объекта*/
-    align-items: flex-start;
-    /*align-items: flex-end;*/
-}
-
-
-
-.slick-list {
-    overflow: hidden;
-}
-
 .slider {
     position: relative;
     /*padding: 0 40px;*/
     min-width: 0;
 }
 
-/*!*СТИЛИЗАЦИЯ СТРЕЛОК*!*/
-/*!*мы записываем через  .slider .slick-arrow чтобы эффект применялся именно к этому слайдеру, т.к. их может быть несколько на странице*!*/
+.slick-list {
+    overflow: hidden;
+    width: 100%;
+}
 
-/*!*чтобы стрелки стояли слева/справа, а не верх/низ, мы делаем position: absolute;  top: 50%;*!*/
+
+.slider .slick-list img{
+    width: 70%;
+    object-fit: cover;
+}
+
+.slick-track {
+    display: flex;
+    /*Мы делаем выравнивание по верху, чтобы у нас работал автоматический выравниватель но высоте для каждого объекта*/
+    align-items: flex-start;
+    /*align-items: flex-end;*/
+}
+
+/*СТИЛИЗАЦИЯ СТРЕЛОК*/
+/*мы записываем через  .slider .slick-arrow чтобы эффект применялся именно к этому слайдеру, т.к. их может быть несколько на странице*/
+
+/*чтобы стрелки стояли слева/справа, а не верх/низ, мы делаем position: absolute;  top: 50%;*/
 .slider .slick-arrow{
     position: absolute;
     top: 50%;
@@ -236,6 +219,7 @@ header {
     background-size: contain;
     width: 30px;
     height: 30px;
+
 }
 
 .slider .slick-arrow.slick-next{
@@ -248,15 +232,11 @@ header {
 }
 
 
-/*!*Поведение стрелки при достижении последнего слайда. В данном случая, она пропадает.*!*/
+/*Поведение стрелки при достижении последнего слайда. В данном случая, она пропадает.*/
 .slider .slick-arrow.slick-disabled {
     opacity: 0;
 }
 
-/*!*при включении функции centerMode появился новый класс slick-center, благодаря которому мы можем добавить стиль к главному слайду*!*/
-/*.slider__items.slick-center {*/
-/*    opacity: 1;*/
-/*}*/
 
 /*!!!!! КОНЕЦ СЛАЙДЕР КАТАЛОГА !!!!!!*/
 
@@ -311,21 +291,27 @@ header {
 
 /* СЛАЙДЕР GOODS DISCAUNTS .goods-slider*/
 
+.goods-slider {
+    position: relative;
+    /*padding: 0 40px;*/
+    min-width: 0;
+}
+
+.goods-slider .slick-list {
+    overflow: hidden;
+    width: 100%;
+}
+
+.goods-slider .slick-list img{
+    width: 100%;
+    object-fit: contain;
+}
+
 .goods-slider .slick-track {
     display: flex;
     /*Мы делаем выравнивание по верху, чтобы у нас работал автоматический выравниватель но высоте для каждого объекта*/
     align-items: flex-start;
     /*align-items: flex-end;*/
-}
-
-.goods-slider .slick-list {
-    overflow: hidden;
-}
-
-.goods-slider {
-    position: relative;
-    padding: 0 40px;
-    min-width: 0;
 }
 
 /*СТИЛИЗАЦИЯ СТРЕЛОК*/
@@ -369,14 +355,8 @@ header {
     opacity: 0;
 }
 
-.goods-slider .slick-list img{
-    /*width: 70%;*/
-    object-fit: contain;
-}
 
-.goods-slider .slick-list {
-    max-width: 90%;
-}
+
 
 /*!!!!! КОНЕЦ СЛАЙДЕРА GOODS !!!!!!!!*/
 

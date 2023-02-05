@@ -83,7 +83,17 @@ $(document).ready(function (){
             },{
                 // на ширине 520px изменить значения
                 breakpoint: 520,
-                settings: "unslick"
+                settings: {
+                    arrows: false,
+                    slidesToShow: 3,
+                }
+            },{
+                // на ширине 420px изменить значения
+                breakpoint: 420,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 2,
+                }
             }
         ],
         // при включении размер будет идти от маленького к большому. 300, 320, 540, 740, 960 и тд. или по другому: поменяет с max-width на min-width
